@@ -1,0 +1,641 @@
+Archive member included because of file (symbol)
+
+../../lib\libasuro.a(globals.o)
+                              asuro.o (switched)
+../../lib\libasuro.a(adc.o)   test.o (LineData)
+../../lib\libasuro.a(adc_low.o)
+                              ../../lib\libasuro.a(adc.o) (ReadADC)
+../../lib\libasuro.a(leds.o)  test.o (StatusLED)
+../../lib\libasuro.a(motor.o)
+                              test.o (SetMotorPower)
+../../lib\libasuro.a(motor_low.o)
+                              test.o (MotorSpeed)
+../../lib\libasuro.a(time.o)  ../../lib\libasuro.a(adc_low.o) (Sleep)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodsi4.o)
+                              ../../lib\libasuro.a(time.o) (__udivmodsi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                              ../../lib\libasuro.a(globals.o) (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                              test.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+speedRight          0x2               test.o
+switched            0x2               ../../lib\libasuro.a(globals.o)
+AdcIntFunc          0x2               ../../lib\libasuro.a(globals.o)
+autoencode          0x2               ../../lib\libasuro.a(globals.o)
+encoder             0x4               ../../lib\libasuro.a(globals.o)
+speedLeft           0x2               test.o
+count36kHz          0x1               ../../lib\libasuro.a(globals.o)
+ADOffset            0x2               test.o
+Ovr2IntFunc         0x2               ../../lib\libasuro.a(globals.o)
+lineData            0x4               test.o
+timebase            0x4               ../../lib\libasuro.a(globals.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+LOAD test.o
+LOAD asuro.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libm.a
+LOAD ../../lib\libasuro.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x5c8
+ *(.vectors)
+ .vectors       0x00000000       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000026                . = ALIGN (0x2)
+                0x00000026                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000026        0x0 linker stubs
+ *(.trampolines*)
+                0x00000026                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000026                __ctors_start = .
+ *(.ctors)
+                0x00000026                __ctors_end = .
+                0x00000026                __dtors_start = .
+ *(.dtors)
+                0x00000026                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000026        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000026                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000026        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000032       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                0x00000032                __do_copy_data
+ .init4         0x00000048       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x00000048                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000058        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init9)
+ *(.text)
+ .text          0x0000005c        0x2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x0000005c                __vector_1
+                0x0000005c                __vector_12
+                0x0000005c                __bad_interrupt
+                0x0000005c                __vector_6
+                0x0000005c                __vector_11
+                0x0000005c                __vector_13
+                0x0000005c                __vector_17
+                0x0000005c                __vector_7
+                0x0000005c                __vector_5
+                0x0000005c                __vector_9
+                0x0000005c                __vector_15
+                0x0000005c                __vector_8
+                0x0000005c                __vector_10
+                0x0000005c                __vector_16
+                0x0000005c                __vector_18
+ .text          0x0000005e      0x11a test.o
+                0x00000084                LineRight
+                0x000000aa                main
+                0x0000005e                LineLeft
+ .text          0x00000178      0x1e8 asuro.o
+                0x000002f4                Init
+                0x00000210                __vector_3
+                0x00000178                __vector_4
+                0x0000026c                __vector_2
+                0x0000029a                __vector_14
+ .text          0x00000360        0x0 ../../lib\libasuro.a(globals.o)
+ .text          0x00000360       0xcc ../../lib\libasuro.a(adc.o)
+                0x00000400                Battery
+                0x00000360                OdometryData
+                0x000003b4                LineData
+ .text          0x0000042c       0x26 ../../lib\libasuro.a(adc_low.o)
+                0x0000042c                ReadADC
+ .text          0x00000452       0x5e ../../lib\libasuro.a(leds.o)
+                0x00000452                StatusLED
+                0x00000478                FrontLED
+                0x0000048a                BackLED
+ .text          0x000004b0       0x4a ../../lib\libasuro.a(motor.o)
+                0x000004b0                SetMotorPower
+ .text          0x000004fa       0x20 ../../lib\libasuro.a(motor_low.o)
+                0x000004fa                MotorSpeed
+                0x00000508                MotorDir
+ .text          0x0000051a       0x66 ../../lib\libasuro.a(time.o)
+                0x0000054e                Sleep
+                0x0000055e                Msleep
+                0x0000051a                Gettime
+ .text          0x00000580        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodsi4.o)
+ .text          0x00000580        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text          0x00000580        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text          0x00000580        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x00000580                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000580       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodsi4.o)
+                0x00000580                __udivmodsi4
+ .text.libgcc   0x000005c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x000005c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000005c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x000005c4                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000005c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                0x000005c4                exit
+                0x000005c4                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000005c4        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000005c8                _etext = .
+
+.data           0x00800060        0x0 load address 0x000005c8
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .data          0x00800060        0x0 test.o
+ .data          0x00800060        0x0 asuro.o
+ .data          0x00800060        0x0 ../../lib\libasuro.a(globals.o)
+ .data          0x00800060        0x0 ../../lib\libasuro.a(adc.o)
+ .data          0x00800060        0x0 ../../lib\libasuro.a(adc_low.o)
+ .data          0x00800060        0x0 ../../lib\libasuro.a(leds.o)
+ .data          0x00800060        0x0 ../../lib\libasuro.a(motor.o)
+ .data          0x00800060        0x0 ../../lib\libasuro.a(motor_low.o)
+ .data          0x00800060        0x0 ../../lib\libasuro.a(time.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodsi4.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800060                . = ALIGN (0x2)
+                0x00800060                _edata = .
+                0x00800060                PROVIDE (__data_end, .)
+
+.bss            0x00800060       0x1b
+                0x00800060                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x00800060        0x0 test.o
+ .bss           0x00800060        0x0 asuro.o
+ .bss           0x00800060        0x0 ../../lib\libasuro.a(globals.o)
+ .bss           0x00800060        0x0 ../../lib\libasuro.a(adc.o)
+ .bss           0x00800060        0x0 ../../lib\libasuro.a(adc_low.o)
+ .bss           0x00800060        0x0 ../../lib\libasuro.a(leds.o)
+ .bss           0x00800060        0x0 ../../lib\libasuro.a(motor.o)
+ .bss           0x00800060        0x0 ../../lib\libasuro.a(motor_low.o)
+ .bss           0x00800060        0x0 ../../lib\libasuro.a(time.o)
+ .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800060        0xa test.o
+                0x00800060                speedRight
+                0x00800062                speedLeft
+                0x00800064                ADOffset
+                0x00800066                lineData
+ COMMON         0x0080006a       0x11 ../../lib\libasuro.a(globals.o)
+                0x0080006a                switched
+                0x0080006c                AdcIntFunc
+                0x0080006e                autoencode
+                0x00800070                encoder
+                0x00800074                count36kHz
+                0x00800075                Ovr2IntFunc
+                0x00800077                timebase
+                0x0080007b                PROVIDE (__bss_end, .)
+                0x000005c8                __data_load_start = LOADADDR (.data)
+                0x000005c8                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080007b        0x0
+                0x0080007b                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080007b                PROVIDE (__noinit_end, .)
+                0x0080007b                _end = .
+                0x0080007b                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x100
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 test.o
+ .debug_aranges
+                0x00000020       0x20 asuro.o
+ .debug_aranges
+                0x00000040       0x20 ../../lib\libasuro.a(adc.o)
+ .debug_aranges
+                0x00000060       0x20 ../../lib\libasuro.a(adc_low.o)
+ .debug_aranges
+                0x00000080       0x20 ../../lib\libasuro.a(leds.o)
+ .debug_aranges
+                0x000000a0       0x20 ../../lib\libasuro.a(motor.o)
+ .debug_aranges
+                0x000000c0       0x20 ../../lib\libasuro.a(motor_low.o)
+ .debug_aranges
+                0x000000e0       0x20 ../../lib\libasuro.a(time.o)
+
+.debug_pubnames
+                0x00000000      0x252
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x6d test.o
+ .debug_pubnames
+                0x0000006d       0x58 asuro.o
+ .debug_pubnames
+                0x000000c5       0x75 ../../lib\libasuro.a(globals.o)
+ .debug_pubnames
+                0x0000013a       0x3c ../../lib\libasuro.a(adc.o)
+ .debug_pubnames
+                0x00000176       0x1e ../../lib\libasuro.a(adc_low.o)
+ .debug_pubnames
+                0x00000194       0x39 ../../lib\libasuro.a(leds.o)
+ .debug_pubnames
+                0x000001cd       0x24 ../../lib\libasuro.a(motor.o)
+ .debug_pubnames
+                0x000001f1       0x2e ../../lib\libasuro.a(motor_low.o)
+ .debug_pubnames
+                0x0000021f       0x33 ../../lib\libasuro.a(time.o)
+
+.debug_info     0x00000000      0x8fd
+ *(.debug_info)
+ .debug_info    0x00000000      0x119 test.o
+ .debug_info    0x00000119      0x143 asuro.o
+ .debug_info    0x0000025c      0x122 ../../lib\libasuro.a(globals.o)
+ .debug_info    0x0000037e      0x12b ../../lib\libasuro.a(adc.o)
+ .debug_info    0x000004a9       0x9b ../../lib\libasuro.a(adc_low.o)
+ .debug_info    0x00000544       0xe3 ../../lib\libasuro.a(leds.o)
+ .debug_info    0x00000627       0xc0 ../../lib\libasuro.a(motor.o)
+ .debug_info    0x000006e7       0xcc ../../lib\libasuro.a(motor_low.o)
+ .debug_info    0x000007b3      0x14a ../../lib\libasuro.a(time.o)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x536
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xa2 test.o
+ .debug_abbrev  0x000000a2       0x92 asuro.o
+ .debug_abbrev  0x00000134       0x7a ../../lib\libasuro.a(globals.o)
+ .debug_abbrev  0x000001ae       0xaf ../../lib\libasuro.a(adc.o)
+ .debug_abbrev  0x0000025d       0x68 ../../lib\libasuro.a(adc_low.o)
+ .debug_abbrev  0x000002c5       0x7d ../../lib\libasuro.a(leds.o)
+ .debug_abbrev  0x00000342       0x73 ../../lib\libasuro.a(motor.o)
+ .debug_abbrev  0x000003b5       0x7d ../../lib\libasuro.a(motor_low.o)
+ .debug_abbrev  0x00000432      0x104 ../../lib\libasuro.a(time.o)
+
+.debug_line     0x00000000      0x7ec
+ *(.debug_line)
+ .debug_line    0x00000000      0x11a test.o
+ .debug_line    0x0000011a      0x1e3 asuro.o
+ .debug_line    0x000002fd       0x5d ../../lib\libasuro.a(globals.o)
+ .debug_line    0x0000035a       0xf7 ../../lib\libasuro.a(adc.o)
+ .debug_line    0x00000451       0x9e ../../lib\libasuro.a(adc_low.o)
+ .debug_line    0x000004ef      0x10b ../../lib\libasuro.a(leds.o)
+ .debug_line    0x000005fa       0xc6 ../../lib\libasuro.a(motor.o)
+ .debug_line    0x000006c0       0x80 ../../lib\libasuro.a(motor_low.o)
+ .debug_line    0x00000740       0xac ../../lib\libasuro.a(time.o)
+
+.debug_frame    0x00000000      0x1d0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x40 test.o
+ .debug_frame   0x00000040       0x60 asuro.o
+ .debug_frame   0x000000a0       0x40 ../../lib\libasuro.a(adc.o)
+ .debug_frame   0x000000e0       0x20 ../../lib\libasuro.a(adc_low.o)
+ .debug_frame   0x00000100       0x40 ../../lib\libasuro.a(leds.o)
+ .debug_frame   0x00000140       0x20 ../../lib\libasuro.a(motor.o)
+ .debug_frame   0x00000160       0x30 ../../lib\libasuro.a(motor_low.o)
+ .debug_frame   0x00000190       0x40 ../../lib\libasuro.a(time.o)
+
+.debug_str      0x00000000      0x2fa
+ *(.debug_str)
+ .debug_str     0x00000000       0xe3 test.o
+                                0x117 (size before relaxing)
+ .debug_str     0x000000e3       0x8f asuro.o
+                                0x160 (size before relaxing)
+ .debug_str     0x00000172       0x63 ../../lib\libasuro.a(globals.o)
+                                0x115 (size before relaxing)
+ .debug_str     0x000001d5       0x30 ../../lib\libasuro.a(adc.o)
+                                 0xf3 (size before relaxing)
+ .debug_str     0x00000205       0x12 ../../lib\libasuro.a(adc_low.o)
+                                 0xd0 (size before relaxing)
+ .debug_str     0x00000217       0x3a ../../lib\libasuro.a(leds.o)
+                                 0xf2 (size before relaxing)
+ .debug_str     0x00000251       0x2e ../../lib\libasuro.a(motor.o)
+                                 0xf1 (size before relaxing)
+ .debug_str     0x0000027f       0x4a ../../lib\libasuro.a(motor_low.o)
+                                0x102 (size before relaxing)
+ .debug_str     0x000002c9       0x31 ../../lib\libasuro.a(time.o)
+                                 0xfd (size before relaxing)
+
+.debug_loc      0x00000000      0x247
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x38 test.o
+ .debug_loc     0x00000038       0x50 ../../lib\libasuro.a(adc.o)
+ .debug_loc     0x00000088       0x50 ../../lib\libasuro.a(adc_low.o)
+ .debug_loc     0x000000d8       0x31 ../../lib\libasuro.a(leds.o)
+ .debug_loc     0x00000109       0xca ../../lib\libasuro.a(motor.o)
+ .debug_loc     0x000001d3       0x39 ../../lib\libasuro.a(motor_low.o)
+ .debug_loc     0x0000020c       0x3b ../../lib\libasuro.a(time.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(test.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+ADOffset                                          test.o
+AdcIntFunc                                        ../../lib\libasuro.a(globals.o)
+                                                  asuro.o
+BackLED                                           ../../lib\libasuro.a(leds.o)
+                                                  asuro.o
+Battery                                           ../../lib\libasuro.a(adc.o)
+FrontLED                                          ../../lib\libasuro.a(leds.o)
+                                                  asuro.o
+                                                  test.o
+Gettime                                           ../../lib\libasuro.a(time.o)
+Init                                              asuro.o
+                                                  test.o
+LineData                                          ../../lib\libasuro.a(adc.o)
+                                                  test.o
+LineLeft                                          test.o
+LineRight                                         test.o
+MotorDir                                          ../../lib\libasuro.a(motor_low.o)
+                                                  ../../lib\libasuro.a(motor.o)
+                                                  asuro.o
+MotorSpeed                                        ../../lib\libasuro.a(motor_low.o)
+                                                  ../../lib\libasuro.a(motor.o)
+                                                  asuro.o
+                                                  test.o
+Msleep                                            ../../lib\libasuro.a(time.o)
+OdometryData                                      ../../lib\libasuro.a(adc.o)
+Ovr2IntFunc                                       ../../lib\libasuro.a(globals.o)
+                                                  asuro.o
+ReadADC                                           ../../lib\libasuro.a(adc_low.o)
+                                                  ../../lib\libasuro.a(adc.o)
+SetMotorPower                                     ../../lib\libasuro.a(motor.o)
+                                                  test.o
+Sleep                                             ../../lib\libasuro.a(time.o)
+                                                  ../../lib\libasuro.a(adc_low.o)
+StatusLED                                         ../../lib\libasuro.a(leds.o)
+                                                  asuro.o
+                                                  test.o
+__bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__bss_end                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__data_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__do_clear_bss                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                                                  ../../lib\libasuro.a(time.o)
+                                                  ../../lib\libasuro.a(motor_low.o)
+                                                  ../../lib\libasuro.a(motor.o)
+                                                  ../../lib\libasuro.a(leds.o)
+                                                  ../../lib\libasuro.a(adc_low.o)
+                                                  ../../lib\libasuro.a(adc.o)
+                                                  ../../lib\libasuro.a(globals.o)
+                                                  test.o
+__do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                                                  ../../lib\libasuro.a(time.o)
+                                                  ../../lib\libasuro.a(motor_low.o)
+                                                  ../../lib\libasuro.a(motor.o)
+                                                  ../../lib\libasuro.a(leds.o)
+                                                  ../../lib\libasuro.a(adc_low.o)
+                                                  ../../lib\libasuro.a(adc.o)
+                                                  ../../lib\libasuro.a(globals.o)
+__heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__stack                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__udivmodsi4                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodsi4.o)
+                                                  ../../lib\libasuro.a(time.o)
+__vector_1                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_10                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_11                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_12                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_13                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_14                                       asuro.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_15                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_16                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_17                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_18                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_2                                        asuro.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_3                                        asuro.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_4                                        asuro.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_5                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_6                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_7                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_8                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_9                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+_exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+autoencode                                        ../../lib\libasuro.a(adc.o)
+                                                  ../../lib\libasuro.a(globals.o)
+                                                  asuro.o
+count36kHz                                        ../../lib\libasuro.a(time.o)
+                                                  ../../lib\libasuro.a(globals.o)
+                                                  asuro.o
+encoder                                           ../../lib\libasuro.a(globals.o)
+exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+lineData                                          test.o
+main                                              test.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+speedLeft                                         test.o
+speedRight                                        test.o
+switched                                          ../../lib\libasuro.a(globals.o)
+                                                  asuro.o
+timebase                                          ../../lib\libasuro.a(time.o)
+                                                  ../../lib\libasuro.a(globals.o)
+                                                  asuro.o

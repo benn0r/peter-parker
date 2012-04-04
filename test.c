@@ -1,69 +1,57 @@
-/***************************************************************************
- *
- * File Name:   kollisiontest.c
- * Project  :   ASURO
- *
- * Description: Kollisionstest mit Hilfe der Tastensensoren
- *
- * Ver.     Date         Author               Comments
- * -------  ----------   -----------------    ------------------------------
- * 1.0      10.09.2005   m.a.r.v.i.n          initial build
- * 1.1      08.01.2006   m.a.r.v.i.n          2x PollSwitch + Vergleich,
- *                                            anstelle 8x PollSwitch
- *
- * benoetigt die modifizierte Asuro Bibliothek 'asuro.c'
- * von waste, stochri und andun. Zu finden bei www.roboternetz.de
- */
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   any later version.                                                    *
- ***************************************************************************/
-
 #include "asuro.h"
 
+#define SPEED  0x8F
 
+int speedLeft,speedRight;
+unsigned int lineData[2];
+int ADOffset;
+
+void LineLeft (void)
+{
+  speedLeft  += 1;      /* links mehr Gas geben */
+  if (speedLeft > 0xFE) speedLeft = 0xFF;
+}
+
+void LineRight (void)
+{
+  speedRight  += 1;     /* rechts mehr Gas geben */
+  if (speedRight > 0xFE) speedRight = 0xFF;
+}
 
 int main(void)
 {
-  unsigned char t1;
-  unsigned int c = 0;
+  int i;
+  unsigned char j;
 
   Init();
-  while (1)
+
+  FrontLED(ON);
+  for (j = 0; j < 0xFF; j++) LineData(lineData);
+  LineData(lineData);
+  ADOffset = lineData[LEFT] - lineData[RIGHT];
+  speedLeft = speedRight = SPEED;
+  for (;;)
   {
-    t1 = PollSwitch();
-	
-    if (t1 == 1)
+    LineData(lineData);
+    i = (lineData[LEFT] - lineData[RIGHT]) - ADOffset;
+    if ( i > 4)
     {
-	  c = c + 1;
-	  BackLED(ON, ON);
-	  Msleep(1000);
+		StatusLED(GREEN);
+		SetMotorPower(60, 60);
+		speedLeft = speedRight = SPEED;
     }
-	else
-	{
-		if (c > 0)
-		{
-			BackLED(OFF, OFF);
-			SerPrint("Gestoppt: ");
-			PrintInt(c);
-			SerPrint("\r\n");
-			c = 0;
-		}			
-		
-		/*while(c > 0)
-		{
-			FrontLED(ON);
-			Msleep(500);
-			FrontLED(OFF);
-			Msleep(500);
-			c--;
-		}*/
-	}		
+    else if ( i < -4)
+    {
+		StatusLED(RED);
+		SetMotorPower(0, 0);
+		speedLeft = speedRight = 0;
+    }
+    else
+    {
+      StatusLED(OFF);
+      speedLeft = speedRight = SPEED;
+    }
+    MotorSpeed(speedLeft, speedRight);
   }
-  
   return 0;
 }
-

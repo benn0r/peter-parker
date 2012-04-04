@@ -1,0 +1,941 @@
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 1
+
+
+   1               		.file	"test.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	LineLeft
+  17               		.type	LineLeft, @function
+  18               	LineLeft:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8091 0000 		lds r24,speedLeft
+  25 0004 9091 0000 		lds r25,(speedLeft)+1
+  26 0008 0196      		adiw r24,1
+  27 000a 9093 0000 		sts (speedLeft)+1,r25
+  28 000e 8093 0000 		sts speedLeft,r24
+  29               	.LM3:
+  30 0012 8F3F      		cpi r24,255
+  31 0014 9105      		cpc r25,__zero_reg__
+  32 0016 04F0      		brlt .L3
+  33 0018 8FEF      		ldi r24,lo8(255)
+  34 001a 90E0      		ldi r25,hi8(255)
+  35 001c 9093 0000 		sts (speedLeft)+1,r25
+  36 0020 8093 0000 		sts speedLeft,r24
+  37               	.L3:
+  38 0024 0895      		ret
+  39               	.LFE2:
+  40               		.size	LineLeft, .-LineLeft
+  41               	.global	LineRight
+  42               		.type	LineRight, @function
+  43               	LineRight:
+  44               	.LFB3:
+  45               	.LM4:
+  46               	/* prologue: function */
+  47               	/* frame size = 0 */
+  48               	.LM5:
+  49 0026 8091 0000 		lds r24,speedRight
+  50 002a 9091 0000 		lds r25,(speedRight)+1
+  51 002e 0196      		adiw r24,1
+  52 0030 9093 0000 		sts (speedRight)+1,r25
+  53 0034 8093 0000 		sts speedRight,r24
+  54               	.LM6:
+  55 0038 8F3F      		cpi r24,255
+  56 003a 9105      		cpc r25,__zero_reg__
+  57 003c 04F0      		brlt .L6
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 2
+
+
+  58 003e 8FEF      		ldi r24,lo8(255)
+  59 0040 90E0      		ldi r25,hi8(255)
+  60 0042 9093 0000 		sts (speedRight)+1,r25
+  61 0046 8093 0000 		sts speedRight,r24
+  62               	.L6:
+  63 004a 0895      		ret
+  64               	.LFE3:
+  65               		.size	LineRight, .-LineRight
+  66               	.global	main
+  67               		.type	main, @function
+  68               	main:
+  69               	.LFB4:
+  70               	.LM7:
+  71 004c 1F93      		push r17
+  72 004e CF93      		push r28
+  73 0050 DF93      		push r29
+  74               	/* prologue: function */
+  75               	/* frame size = 0 */
+  76               	.LM8:
+  77 0052 00D0      		rcall Init
+  78               	.LM9:
+  79 0054 81E0      		ldi r24,lo8(1)
+  80 0056 00D0      		rcall FrontLED
+  81 0058 10E0      		ldi r17,lo8(0)
+  82               	.LVL0:
+  83               	.L8:
+  84               	.LM10:
+  85 005a 80E0      		ldi r24,lo8(lineData)
+  86 005c 90E0      		ldi r25,hi8(lineData)
+  87 005e 00D0      		rcall LineData
+  88 0060 1F5F      		subi r17,lo8(-(1))
+  89 0062 1F3F      		cpi r17,lo8(-1)
+  90 0064 01F4      		brne .L8
+  91               	.LM11:
+  92 0066 80E0      		ldi r24,lo8(lineData)
+  93 0068 90E0      		ldi r25,hi8(lineData)
+  94 006a 00D0      		rcall LineData
+  95               	.LM12:
+  96 006c 8091 0000 		lds r24,lineData
+  97 0070 9091 0000 		lds r25,(lineData)+1
+  98 0074 2091 0000 		lds r18,lineData+2
+  99 0078 3091 0000 		lds r19,(lineData+2)+1
+ 100 007c 821B      		sub r24,r18
+ 101 007e 930B      		sbc r25,r19
+ 102 0080 9093 0000 		sts (ADOffset)+1,r25
+ 103 0084 8093 0000 		sts ADOffset,r24
+ 104               	.LM13:
+ 105 0088 8FE8      		ldi r24,lo8(143)
+ 106 008a 90E0      		ldi r25,hi8(143)
+ 107 008c 9093 0000 		sts (speedRight)+1,r25
+ 108 0090 8093 0000 		sts speedRight,r24
+ 109 0094 9093 0000 		sts (speedLeft)+1,r25
+ 110 0098 8093 0000 		sts speedLeft,r24
+ 111               	.LM14:
+ 112 009c CFE8      		ldi r28,lo8(143)
+ 113 009e D0E0      		ldi r29,hi8(143)
+ 114               	.L12:
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 3
+
+
+ 115               	.LM15:
+ 116 00a0 80E0      		ldi r24,lo8(lineData)
+ 117 00a2 90E0      		ldi r25,hi8(lineData)
+ 118 00a4 00D0      		rcall LineData
+ 119               	.LM16:
+ 120 00a6 2091 0000 		lds r18,lineData
+ 121 00aa 3091 0000 		lds r19,(lineData)+1
+ 122               	.LVL1:
+ 123 00ae 8091 0000 		lds r24,lineData+2
+ 124 00b2 9091 0000 		lds r25,(lineData+2)+1
+ 125 00b6 281B      		sub r18,r24
+ 126 00b8 390B      		sbc r19,r25
+ 127 00ba 8091 0000 		lds r24,ADOffset
+ 128 00be 9091 0000 		lds r25,(ADOffset)+1
+ 129 00c2 281B      		sub r18,r24
+ 130 00c4 390B      		sbc r19,r25
+ 131               	.LM17:
+ 132 00c6 2530      		cpi r18,5
+ 133 00c8 3105      		cpc r19,__zero_reg__
+ 134 00ca 04F0      		brlt .L9
+ 135               	.LM18:
+ 136 00cc 81E0      		ldi r24,lo8(1)
+ 137 00ce 00D0      		rcall StatusLED
+ 138               	.LVL2:
+ 139               	.LM19:
+ 140 00d0 8CE3      		ldi r24,lo8(60)
+ 141 00d2 6CE3      		ldi r22,lo8(60)
+ 142 00d4 00D0      		rcall SetMotorPower
+ 143 00d6 00C0      		rjmp .L15
+ 144               	.LVL3:
+ 145               	.L9:
+ 146               	.LM20:
+ 147 00d8 2C5F      		subi r18,lo8(-4)
+ 148 00da 3F4F      		sbci r19,hi8(-4)
+ 149 00dc 04F4      		brge .L11
+ 150               	.LM21:
+ 151 00de 82E0      		ldi r24,lo8(2)
+ 152 00e0 00D0      		rcall StatusLED
+ 153               	.LVL4:
+ 154               	.LM22:
+ 155 00e2 80E0      		ldi r24,lo8(0)
+ 156 00e4 60E0      		ldi r22,lo8(0)
+ 157 00e6 00D0      		rcall SetMotorPower
+ 158               	.LM23:
+ 159 00e8 1092 0000 		sts (speedRight)+1,__zero_reg__
+ 160 00ec 1092 0000 		sts speedRight,__zero_reg__
+ 161 00f0 1092 0000 		sts (speedLeft)+1,__zero_reg__
+ 162 00f4 1092 0000 		sts speedLeft,__zero_reg__
+ 163 00f8 00C0      		rjmp .L10
+ 164               	.LVL5:
+ 165               	.L11:
+ 166               	.LM24:
+ 167 00fa 80E0      		ldi r24,lo8(0)
+ 168 00fc 00D0      		rcall StatusLED
+ 169               	.LVL6:
+ 170               	.L15:
+ 171               	.LM25:
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 4
+
+
+ 172 00fe D093 0000 		sts (speedRight)+1,r29
+ 173 0102 C093 0000 		sts speedRight,r28
+ 174 0106 D093 0000 		sts (speedLeft)+1,r29
+ 175 010a C093 0000 		sts speedLeft,r28
+ 176               	.L10:
+ 177               	.LM26:
+ 178 010e 8091 0000 		lds r24,speedLeft
+ 179 0112 6091 0000 		lds r22,speedRight
+ 180 0116 00D0      		rcall MotorSpeed
+ 181 0118 00C0      		rjmp .L12
+ 182               	.LFE4:
+ 183               		.size	main, .-main
+ 184               		.comm speedLeft,2,1
+ 185               		.comm speedRight,2,1
+ 186               		.comm lineData,4,1
+ 187               		.comm ADOffset,2,1
+ 188               		.section	.debug_frame,"",@progbits
+ 189               	.Lframe0:
+ 190 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 191               	.LSCIE0:
+ 192 0004 FFFF FFFF 		.long	0xffffffff
+ 193 0008 01        		.byte	0x1
+ 194 0009 00        		.string	""
+ 195 000a 01        		.uleb128 0x1
+ 196 000b 7F        		.sleb128 -1
+ 197 000c 24        		.byte	0x24
+ 198 000d 0C        		.byte	0xc
+ 199 000e 20        		.uleb128 0x20
+ 200 000f 00        		.uleb128 0x0
+ 201               		.p2align	2
+ 202               	.LECIE0:
+ 203               	.LSFDE0:
+ 204 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 205               	.LASFDE0:
+ 206 0014 0000 0000 		.long	.Lframe0
+ 207 0018 0000 0000 		.long	.LFB2
+ 208 001c 2600 0000 		.long	.LFE2-.LFB2
+ 209               		.p2align	2
+ 210               	.LEFDE0:
+ 211               	.LSFDE2:
+ 212 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 213               	.LASFDE2:
+ 214 0024 0000 0000 		.long	.Lframe0
+ 215 0028 0000 0000 		.long	.LFB3
+ 216 002c 2600 0000 		.long	.LFE3-.LFB3
+ 217               		.p2align	2
+ 218               	.LEFDE2:
+ 219               	.LSFDE4:
+ 220 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 221               	.LASFDE4:
+ 222 0034 0000 0000 		.long	.Lframe0
+ 223 0038 0000 0000 		.long	.LFB4
+ 224 003c CE00 0000 		.long	.LFE4-.LFB4
+ 225               		.p2align	2
+ 226               	.LEFDE4:
+ 227               		.text
+ 228               	.Letext0:
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 5
+
+
+ 229               		.section	.debug_loc,"",@progbits
+ 230               	.Ldebug_loc0:
+ 231               	.LLST3:
+ 232 0000 AE00 0000 		.long	.LVL1-.Ltext0
+ 233 0004 D000 0000 		.long	.LVL2-.Ltext0
+ 234 0008 0600      		.word	0x6
+ 235 000a 62        		.byte	0x62
+ 236 000b 93        		.byte	0x93
+ 237 000c 01        		.uleb128 0x1
+ 238 000d 63        		.byte	0x63
+ 239 000e 93        		.byte	0x93
+ 240 000f 01        		.uleb128 0x1
+ 241 0010 D800 0000 		.long	.LVL3-.Ltext0
+ 242 0014 E200 0000 		.long	.LVL4-.Ltext0
+ 243 0018 0600      		.word	0x6
+ 244 001a 62        		.byte	0x62
+ 245 001b 93        		.byte	0x93
+ 246 001c 01        		.uleb128 0x1
+ 247 001d 63        		.byte	0x63
+ 248 001e 93        		.byte	0x93
+ 249 001f 01        		.uleb128 0x1
+ 250 0020 FA00 0000 		.long	.LVL5-.Ltext0
+ 251 0024 FE00 0000 		.long	.LVL6-.Ltext0
+ 252 0028 0600      		.word	0x6
+ 253 002a 62        		.byte	0x62
+ 254 002b 93        		.byte	0x93
+ 255 002c 01        		.uleb128 0x1
+ 256 002d 63        		.byte	0x63
+ 257 002e 93        		.byte	0x93
+ 258 002f 01        		.uleb128 0x1
+ 259 0030 0000 0000 		.long	0x0
+ 260 0034 0000 0000 		.long	0x0
+ 261               		.section	.debug_info
+ 262 0000 1501 0000 		.long	0x115
+ 263 0004 0200      		.word	0x2
+ 264 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 265 000a 04        		.byte	0x4
+ 266 000b 01        		.uleb128 0x1
+ 267 000c 0000 0000 		.long	.LASF13
+ 268 0010 01        		.byte	0x1
+ 269 0011 0000 0000 		.long	.LASF14
+ 270 0015 0000 0000 		.long	.LASF15
+ 271 0019 0000 0000 		.long	.Ltext0
+ 272 001d 0000 0000 		.long	.Letext0
+ 273 0021 0000 0000 		.long	.Ldebug_line0
+ 274 0025 02        		.uleb128 0x2
+ 275 0026 01        		.byte	0x1
+ 276 0027 06        		.byte	0x6
+ 277 0028 0000 0000 		.long	.LASF0
+ 278 002c 02        		.uleb128 0x2
+ 279 002d 01        		.byte	0x1
+ 280 002e 08        		.byte	0x8
+ 281 002f 0000 0000 		.long	.LASF1
+ 282 0033 03        		.uleb128 0x3
+ 283 0034 02        		.byte	0x2
+ 284 0035 05        		.byte	0x5
+ 285 0036 696E 7400 		.string	"int"
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 6
+
+
+ 286 003a 02        		.uleb128 0x2
+ 287 003b 02        		.byte	0x2
+ 288 003c 07        		.byte	0x7
+ 289 003d 0000 0000 		.long	.LASF2
+ 290 0041 02        		.uleb128 0x2
+ 291 0042 04        		.byte	0x4
+ 292 0043 05        		.byte	0x5
+ 293 0044 0000 0000 		.long	.LASF3
+ 294 0048 02        		.uleb128 0x2
+ 295 0049 04        		.byte	0x4
+ 296 004a 07        		.byte	0x7
+ 297 004b 0000 0000 		.long	.LASF4
+ 298 004f 02        		.uleb128 0x2
+ 299 0050 08        		.byte	0x8
+ 300 0051 05        		.byte	0x5
+ 301 0052 0000 0000 		.long	.LASF5
+ 302 0056 02        		.uleb128 0x2
+ 303 0057 08        		.byte	0x8
+ 304 0058 07        		.byte	0x7
+ 305 0059 0000 0000 		.long	.LASF6
+ 306 005d 04        		.uleb128 0x4
+ 307 005e 01        		.byte	0x1
+ 308 005f 08        		.byte	0x8
+ 309 0060 05        		.uleb128 0x5
+ 310 0061 01        		.byte	0x1
+ 311 0062 0000 0000 		.long	.LASF7
+ 312 0066 01        		.byte	0x1
+ 313 0067 0A        		.byte	0xa
+ 314 0068 01        		.byte	0x1
+ 315 0069 0000 0000 		.long	.LFB2
+ 316 006d 0000 0000 		.long	.LFE2
+ 317 0071 02        		.byte	0x2
+ 318 0072 90        		.byte	0x90
+ 319 0073 20        		.uleb128 0x20
+ 320 0074 05        		.uleb128 0x5
+ 321 0075 01        		.byte	0x1
+ 322 0076 0000 0000 		.long	.LASF8
+ 323 007a 01        		.byte	0x1
+ 324 007b 10        		.byte	0x10
+ 325 007c 01        		.byte	0x1
+ 326 007d 0000 0000 		.long	.LFB3
+ 327 0081 0000 0000 		.long	.LFE3
+ 328 0085 02        		.byte	0x2
+ 329 0086 90        		.byte	0x90
+ 330 0087 20        		.uleb128 0x20
+ 331 0088 06        		.uleb128 0x6
+ 332 0089 01        		.byte	0x1
+ 333 008a 0000 0000 		.long	.LASF16
+ 334 008e 01        		.byte	0x1
+ 335 008f 16        		.byte	0x16
+ 336 0090 01        		.byte	0x1
+ 337 0091 3300 0000 		.long	0x33
+ 338 0095 0000 0000 		.long	.LFB4
+ 339 0099 0000 0000 		.long	.LFE4
+ 340 009d 02        		.byte	0x2
+ 341 009e 90        		.byte	0x90
+ 342 009f 20        		.uleb128 0x20
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 7
+
+
+ 343 00a0 BD00 0000 		.long	0xbd
+ 344 00a4 07        		.uleb128 0x7
+ 345 00a5 6900      		.string	"i"
+ 346 00a7 01        		.byte	0x1
+ 347 00a8 17        		.byte	0x17
+ 348 00a9 3300 0000 		.long	0x33
+ 349 00ad 0000 0000 		.long	.LLST3
+ 350 00b1 08        		.uleb128 0x8
+ 351 00b2 6A00      		.string	"j"
+ 352 00b4 01        		.byte	0x1
+ 353 00b5 18        		.byte	0x18
+ 354 00b6 2C00 0000 		.long	0x2c
+ 355 00ba 01        		.byte	0x1
+ 356 00bb 61        		.byte	0x61
+ 357 00bc 00        		.byte	0x0
+ 358 00bd 09        		.uleb128 0x9
+ 359 00be 0000 0000 		.long	.LASF9
+ 360 00c2 01        		.byte	0x1
+ 361 00c3 05        		.byte	0x5
+ 362 00c4 3300 0000 		.long	0x33
+ 363 00c8 01        		.byte	0x1
+ 364 00c9 05        		.byte	0x5
+ 365 00ca 03        		.byte	0x3
+ 366 00cb 0000 0000 		.long	speedLeft
+ 367 00cf 09        		.uleb128 0x9
+ 368 00d0 0000 0000 		.long	.LASF10
+ 369 00d4 01        		.byte	0x1
+ 370 00d5 05        		.byte	0x5
+ 371 00d6 3300 0000 		.long	0x33
+ 372 00da 01        		.byte	0x1
+ 373 00db 05        		.byte	0x5
+ 374 00dc 03        		.byte	0x3
+ 375 00dd 0000 0000 		.long	speedRight
+ 376 00e1 0A        		.uleb128 0xa
+ 377 00e2 3A00 0000 		.long	0x3a
+ 378 00e6 F100 0000 		.long	0xf1
+ 379 00ea 0B        		.uleb128 0xb
+ 380 00eb F100 0000 		.long	0xf1
+ 381 00ef 01        		.byte	0x1
+ 382 00f0 00        		.byte	0x0
+ 383 00f1 04        		.uleb128 0x4
+ 384 00f2 02        		.byte	0x2
+ 385 00f3 07        		.byte	0x7
+ 386 00f4 09        		.uleb128 0x9
+ 387 00f5 0000 0000 		.long	.LASF11
+ 388 00f9 01        		.byte	0x1
+ 389 00fa 06        		.byte	0x6
+ 390 00fb E100 0000 		.long	0xe1
+ 391 00ff 01        		.byte	0x1
+ 392 0100 05        		.byte	0x5
+ 393 0101 03        		.byte	0x3
+ 394 0102 0000 0000 		.long	lineData
+ 395 0106 09        		.uleb128 0x9
+ 396 0107 0000 0000 		.long	.LASF12
+ 397 010b 01        		.byte	0x1
+ 398 010c 07        		.byte	0x7
+ 399 010d 3300 0000 		.long	0x33
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 8
+
+
+ 400 0111 01        		.byte	0x1
+ 401 0112 05        		.byte	0x5
+ 402 0113 03        		.byte	0x3
+ 403 0114 0000 0000 		.long	ADOffset
+ 404 0118 00        		.byte	0x0
+ 405               		.section	.debug_abbrev
+ 406 0000 01        		.uleb128 0x1
+ 407 0001 11        		.uleb128 0x11
+ 408 0002 01        		.byte	0x1
+ 409 0003 25        		.uleb128 0x25
+ 410 0004 0E        		.uleb128 0xe
+ 411 0005 13        		.uleb128 0x13
+ 412 0006 0B        		.uleb128 0xb
+ 413 0007 03        		.uleb128 0x3
+ 414 0008 0E        		.uleb128 0xe
+ 415 0009 1B        		.uleb128 0x1b
+ 416 000a 0E        		.uleb128 0xe
+ 417 000b 11        		.uleb128 0x11
+ 418 000c 01        		.uleb128 0x1
+ 419 000d 12        		.uleb128 0x12
+ 420 000e 01        		.uleb128 0x1
+ 421 000f 10        		.uleb128 0x10
+ 422 0010 06        		.uleb128 0x6
+ 423 0011 00        		.byte	0x0
+ 424 0012 00        		.byte	0x0
+ 425 0013 02        		.uleb128 0x2
+ 426 0014 24        		.uleb128 0x24
+ 427 0015 00        		.byte	0x0
+ 428 0016 0B        		.uleb128 0xb
+ 429 0017 0B        		.uleb128 0xb
+ 430 0018 3E        		.uleb128 0x3e
+ 431 0019 0B        		.uleb128 0xb
+ 432 001a 03        		.uleb128 0x3
+ 433 001b 0E        		.uleb128 0xe
+ 434 001c 00        		.byte	0x0
+ 435 001d 00        		.byte	0x0
+ 436 001e 03        		.uleb128 0x3
+ 437 001f 24        		.uleb128 0x24
+ 438 0020 00        		.byte	0x0
+ 439 0021 0B        		.uleb128 0xb
+ 440 0022 0B        		.uleb128 0xb
+ 441 0023 3E        		.uleb128 0x3e
+ 442 0024 0B        		.uleb128 0xb
+ 443 0025 03        		.uleb128 0x3
+ 444 0026 08        		.uleb128 0x8
+ 445 0027 00        		.byte	0x0
+ 446 0028 00        		.byte	0x0
+ 447 0029 04        		.uleb128 0x4
+ 448 002a 24        		.uleb128 0x24
+ 449 002b 00        		.byte	0x0
+ 450 002c 0B        		.uleb128 0xb
+ 451 002d 0B        		.uleb128 0xb
+ 452 002e 3E        		.uleb128 0x3e
+ 453 002f 0B        		.uleb128 0xb
+ 454 0030 00        		.byte	0x0
+ 455 0031 00        		.byte	0x0
+ 456 0032 05        		.uleb128 0x5
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 9
+
+
+ 457 0033 2E        		.uleb128 0x2e
+ 458 0034 00        		.byte	0x0
+ 459 0035 3F        		.uleb128 0x3f
+ 460 0036 0C        		.uleb128 0xc
+ 461 0037 03        		.uleb128 0x3
+ 462 0038 0E        		.uleb128 0xe
+ 463 0039 3A        		.uleb128 0x3a
+ 464 003a 0B        		.uleb128 0xb
+ 465 003b 3B        		.uleb128 0x3b
+ 466 003c 0B        		.uleb128 0xb
+ 467 003d 27        		.uleb128 0x27
+ 468 003e 0C        		.uleb128 0xc
+ 469 003f 11        		.uleb128 0x11
+ 470 0040 01        		.uleb128 0x1
+ 471 0041 12        		.uleb128 0x12
+ 472 0042 01        		.uleb128 0x1
+ 473 0043 40        		.uleb128 0x40
+ 474 0044 0A        		.uleb128 0xa
+ 475 0045 00        		.byte	0x0
+ 476 0046 00        		.byte	0x0
+ 477 0047 06        		.uleb128 0x6
+ 478 0048 2E        		.uleb128 0x2e
+ 479 0049 01        		.byte	0x1
+ 480 004a 3F        		.uleb128 0x3f
+ 481 004b 0C        		.uleb128 0xc
+ 482 004c 03        		.uleb128 0x3
+ 483 004d 0E        		.uleb128 0xe
+ 484 004e 3A        		.uleb128 0x3a
+ 485 004f 0B        		.uleb128 0xb
+ 486 0050 3B        		.uleb128 0x3b
+ 487 0051 0B        		.uleb128 0xb
+ 488 0052 27        		.uleb128 0x27
+ 489 0053 0C        		.uleb128 0xc
+ 490 0054 49        		.uleb128 0x49
+ 491 0055 13        		.uleb128 0x13
+ 492 0056 11        		.uleb128 0x11
+ 493 0057 01        		.uleb128 0x1
+ 494 0058 12        		.uleb128 0x12
+ 495 0059 01        		.uleb128 0x1
+ 496 005a 40        		.uleb128 0x40
+ 497 005b 0A        		.uleb128 0xa
+ 498 005c 01        		.uleb128 0x1
+ 499 005d 13        		.uleb128 0x13
+ 500 005e 00        		.byte	0x0
+ 501 005f 00        		.byte	0x0
+ 502 0060 07        		.uleb128 0x7
+ 503 0061 34        		.uleb128 0x34
+ 504 0062 00        		.byte	0x0
+ 505 0063 03        		.uleb128 0x3
+ 506 0064 08        		.uleb128 0x8
+ 507 0065 3A        		.uleb128 0x3a
+ 508 0066 0B        		.uleb128 0xb
+ 509 0067 3B        		.uleb128 0x3b
+ 510 0068 0B        		.uleb128 0xb
+ 511 0069 49        		.uleb128 0x49
+ 512 006a 13        		.uleb128 0x13
+ 513 006b 02        		.uleb128 0x2
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 10
+
+
+ 514 006c 06        		.uleb128 0x6
+ 515 006d 00        		.byte	0x0
+ 516 006e 00        		.byte	0x0
+ 517 006f 08        		.uleb128 0x8
+ 518 0070 34        		.uleb128 0x34
+ 519 0071 00        		.byte	0x0
+ 520 0072 03        		.uleb128 0x3
+ 521 0073 08        		.uleb128 0x8
+ 522 0074 3A        		.uleb128 0x3a
+ 523 0075 0B        		.uleb128 0xb
+ 524 0076 3B        		.uleb128 0x3b
+ 525 0077 0B        		.uleb128 0xb
+ 526 0078 49        		.uleb128 0x49
+ 527 0079 13        		.uleb128 0x13
+ 528 007a 02        		.uleb128 0x2
+ 529 007b 0A        		.uleb128 0xa
+ 530 007c 00        		.byte	0x0
+ 531 007d 00        		.byte	0x0
+ 532 007e 09        		.uleb128 0x9
+ 533 007f 34        		.uleb128 0x34
+ 534 0080 00        		.byte	0x0
+ 535 0081 03        		.uleb128 0x3
+ 536 0082 0E        		.uleb128 0xe
+ 537 0083 3A        		.uleb128 0x3a
+ 538 0084 0B        		.uleb128 0xb
+ 539 0085 3B        		.uleb128 0x3b
+ 540 0086 0B        		.uleb128 0xb
+ 541 0087 49        		.uleb128 0x49
+ 542 0088 13        		.uleb128 0x13
+ 543 0089 3F        		.uleb128 0x3f
+ 544 008a 0C        		.uleb128 0xc
+ 545 008b 02        		.uleb128 0x2
+ 546 008c 0A        		.uleb128 0xa
+ 547 008d 00        		.byte	0x0
+ 548 008e 00        		.byte	0x0
+ 549 008f 0A        		.uleb128 0xa
+ 550 0090 01        		.uleb128 0x1
+ 551 0091 01        		.byte	0x1
+ 552 0092 49        		.uleb128 0x49
+ 553 0093 13        		.uleb128 0x13
+ 554 0094 01        		.uleb128 0x1
+ 555 0095 13        		.uleb128 0x13
+ 556 0096 00        		.byte	0x0
+ 557 0097 00        		.byte	0x0
+ 558 0098 0B        		.uleb128 0xb
+ 559 0099 21        		.uleb128 0x21
+ 560 009a 00        		.byte	0x0
+ 561 009b 49        		.uleb128 0x49
+ 562 009c 13        		.uleb128 0x13
+ 563 009d 2F        		.uleb128 0x2f
+ 564 009e 0B        		.uleb128 0xb
+ 565 009f 00        		.byte	0x0
+ 566 00a0 00        		.byte	0x0
+ 567 00a1 00        		.byte	0x0
+ 568               		.section	.debug_pubnames,"",@progbits
+ 569 0000 6900 0000 		.long	0x69
+ 570 0004 0200      		.word	0x2
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 11
+
+
+ 571 0006 0000 0000 		.long	.Ldebug_info0
+ 572 000a 1901 0000 		.long	0x119
+ 573 000e 6000 0000 		.long	0x60
+ 574 0012 4C69 6E65 		.string	"LineLeft"
+ 574      4C65 6674 
+ 574      00
+ 575 001b 7400 0000 		.long	0x74
+ 576 001f 4C69 6E65 		.string	"LineRight"
+ 576      5269 6768 
+ 576      7400 
+ 577 0029 8800 0000 		.long	0x88
+ 578 002d 6D61 696E 		.string	"main"
+ 578      00
+ 579 0032 BD00 0000 		.long	0xbd
+ 580 0036 7370 6565 		.string	"speedLeft"
+ 580      644C 6566 
+ 580      7400 
+ 581 0040 CF00 0000 		.long	0xcf
+ 582 0044 7370 6565 		.string	"speedRight"
+ 582      6452 6967 
+ 582      6874 00
+ 583 004f F400 0000 		.long	0xf4
+ 584 0053 6C69 6E65 		.string	"lineData"
+ 584      4461 7461 
+ 584      00
+ 585 005c 0601 0000 		.long	0x106
+ 586 0060 4144 4F66 		.string	"ADOffset"
+ 586      6673 6574 
+ 586      00
+ 587 0069 0000 0000 		.long	0x0
+ 588               		.section	.debug_aranges,"",@progbits
+ 589 0000 1C00 0000 		.long	0x1c
+ 590 0004 0200      		.word	0x2
+ 591 0006 0000 0000 		.long	.Ldebug_info0
+ 592 000a 04        		.byte	0x4
+ 593 000b 00        		.byte	0x0
+ 594 000c 0000      		.word	0x0
+ 595 000e 0000      		.word	0x0
+ 596 0010 0000 0000 		.long	.Ltext0
+ 597 0014 1A01 0000 		.long	.Letext0-.Ltext0
+ 598 0018 0000 0000 		.long	0x0
+ 599 001c 0000 0000 		.long	0x0
+ 600               		.section	.debug_line
+ 601 0000 FC00 0000 		.long	.LELT0-.LSLT0
+ 602               	.LSLT0:
+ 603 0004 0200      		.word	0x2
+ 604 0006 1A00 0000 		.long	.LELTP0-.LASLTP0
+ 605               	.LASLTP0:
+ 606 000a 01        		.byte	0x1
+ 607 000b 01        		.byte	0x1
+ 608 000c F6        		.byte	0xf6
+ 609 000d F5        		.byte	0xf5
+ 610 000e 0A        		.byte	0xa
+ 611 000f 00        		.byte	0x0
+ 612 0010 01        		.byte	0x1
+ 613 0011 01        		.byte	0x1
+ 614 0012 01        		.byte	0x1
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 12
+
+
+ 615 0013 01        		.byte	0x1
+ 616 0014 00        		.byte	0x0
+ 617 0015 00        		.byte	0x0
+ 618 0016 00        		.byte	0x0
+ 619 0017 01        		.byte	0x1
+ 620 0018 00        		.byte	0x0
+ 621 0019 7465 7374 		.string	"test.c"
+ 621      2E63 00
+ 622 0020 00        		.uleb128 0x0
+ 623 0021 00        		.uleb128 0x0
+ 624 0022 00        		.uleb128 0x0
+ 625 0023 00        		.byte	0x0
+ 626               	.LELTP0:
+ 627 0024 00        		.byte	0x0
+ 628 0025 05        		.uleb128 0x5
+ 629 0026 02        		.byte	0x2
+ 630 0027 0000 0000 		.long	.LM1
+ 631 002b 1D        		.byte	0x1d
+ 632 002c 00        		.byte	0x0
+ 633 002d 05        		.uleb128 0x5
+ 634 002e 02        		.byte	0x2
+ 635 002f 0000 0000 		.long	.LM2
+ 636 0033 15        		.byte	0x15
+ 637 0034 00        		.byte	0x0
+ 638 0035 05        		.uleb128 0x5
+ 639 0036 02        		.byte	0x2
+ 640 0037 0000 0000 		.long	.LM3
+ 641 003b 15        		.byte	0x15
+ 642 003c 00        		.byte	0x0
+ 643 003d 05        		.uleb128 0x5
+ 644 003e 02        		.byte	0x2
+ 645 003f 0000 0000 		.long	.LM4
+ 646 0043 18        		.byte	0x18
+ 647 0044 00        		.byte	0x0
+ 648 0045 05        		.uleb128 0x5
+ 649 0046 02        		.byte	0x2
+ 650 0047 0000 0000 		.long	.LM5
+ 651 004b 15        		.byte	0x15
+ 652 004c 00        		.byte	0x0
+ 653 004d 05        		.uleb128 0x5
+ 654 004e 02        		.byte	0x2
+ 655 004f 0000 0000 		.long	.LM6
+ 656 0053 15        		.byte	0x15
+ 657 0054 00        		.byte	0x0
+ 658 0055 05        		.uleb128 0x5
+ 659 0056 02        		.byte	0x2
+ 660 0057 0000 0000 		.long	.LM7
+ 661 005b 18        		.byte	0x18
+ 662 005c 00        		.byte	0x0
+ 663 005d 05        		.uleb128 0x5
+ 664 005e 02        		.byte	0x2
+ 665 005f 0000 0000 		.long	.LM8
+ 666 0063 18        		.byte	0x18
+ 667 0064 00        		.byte	0x0
+ 668 0065 05        		.uleb128 0x5
+ 669 0066 02        		.byte	0x2
+ 670 0067 0000 0000 		.long	.LM9
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 13
+
+
+ 671 006b 16        		.byte	0x16
+ 672 006c 00        		.byte	0x0
+ 673 006d 05        		.uleb128 0x5
+ 674 006e 02        		.byte	0x2
+ 675 006f 0000 0000 		.long	.LM10
+ 676 0073 15        		.byte	0x15
+ 677 0074 00        		.byte	0x0
+ 678 0075 05        		.uleb128 0x5
+ 679 0076 02        		.byte	0x2
+ 680 0077 0000 0000 		.long	.LM11
+ 681 007b 15        		.byte	0x15
+ 682 007c 00        		.byte	0x0
+ 683 007d 05        		.uleb128 0x5
+ 684 007e 02        		.byte	0x2
+ 685 007f 0000 0000 		.long	.LM12
+ 686 0083 15        		.byte	0x15
+ 687 0084 00        		.byte	0x0
+ 688 0085 05        		.uleb128 0x5
+ 689 0086 02        		.byte	0x2
+ 690 0087 0000 0000 		.long	.LM13
+ 691 008b 15        		.byte	0x15
+ 692 008c 00        		.byte	0x0
+ 693 008d 05        		.uleb128 0x5
+ 694 008e 02        		.byte	0x2
+ 695 008f 0000 0000 		.long	.LM14
+ 696 0093 28        		.byte	0x28
+ 697 0094 00        		.byte	0x0
+ 698 0095 05        		.uleb128 0x5
+ 699 0096 02        		.byte	0x2
+ 700 0097 0000 0000 		.long	.LM15
+ 701 009b 03        		.byte	0x3
+ 702 009c 6F        		.sleb128 -17
+ 703 009d 01        		.byte	0x1
+ 704 009e 00        		.byte	0x0
+ 705 009f 05        		.uleb128 0x5
+ 706 00a0 02        		.byte	0x2
+ 707 00a1 0000 0000 		.long	.LM16
+ 708 00a5 15        		.byte	0x15
+ 709 00a6 00        		.byte	0x0
+ 710 00a7 05        		.uleb128 0x5
+ 711 00a8 02        		.byte	0x2
+ 712 00a9 0000 0000 		.long	.LM17
+ 713 00ad 15        		.byte	0x15
+ 714 00ae 00        		.byte	0x0
+ 715 00af 05        		.uleb128 0x5
+ 716 00b0 02        		.byte	0x2
+ 717 00b1 0000 0000 		.long	.LM18
+ 718 00b5 16        		.byte	0x16
+ 719 00b6 00        		.byte	0x0
+ 720 00b7 05        		.uleb128 0x5
+ 721 00b8 02        		.byte	0x2
+ 722 00b9 0000 0000 		.long	.LM19
+ 723 00bd 15        		.byte	0x15
+ 724 00be 00        		.byte	0x0
+ 725 00bf 05        		.uleb128 0x5
+ 726 00c0 02        		.byte	0x2
+ 727 00c1 0000 0000 		.long	.LM20
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 14
+
+
+ 728 00c5 17        		.byte	0x17
+ 729 00c6 00        		.byte	0x0
+ 730 00c7 05        		.uleb128 0x5
+ 731 00c8 02        		.byte	0x2
+ 732 00c9 0000 0000 		.long	.LM21
+ 733 00cd 16        		.byte	0x16
+ 734 00ce 00        		.byte	0x0
+ 735 00cf 05        		.uleb128 0x5
+ 736 00d0 02        		.byte	0x2
+ 737 00d1 0000 0000 		.long	.LM22
+ 738 00d5 15        		.byte	0x15
+ 739 00d6 00        		.byte	0x0
+ 740 00d7 05        		.uleb128 0x5
+ 741 00d8 02        		.byte	0x2
+ 742 00d9 0000 0000 		.long	.LM23
+ 743 00dd 15        		.byte	0x15
+ 744 00de 00        		.byte	0x0
+ 745 00df 05        		.uleb128 0x5
+ 746 00e0 02        		.byte	0x2
+ 747 00e1 0000 0000 		.long	.LM24
+ 748 00e5 18        		.byte	0x18
+ 749 00e6 00        		.byte	0x0
+ 750 00e7 05        		.uleb128 0x5
+ 751 00e8 02        		.byte	0x2
+ 752 00e9 0000 0000 		.long	.LM25
+ 753 00ed 15        		.byte	0x15
+ 754 00ee 00        		.byte	0x0
+ 755 00ef 05        		.uleb128 0x5
+ 756 00f0 02        		.byte	0x2
+ 757 00f1 0000 0000 		.long	.LM26
+ 758 00f5 16        		.byte	0x16
+ 759 00f6 00        		.byte	0x0
+ 760 00f7 05        		.uleb128 0x5
+ 761 00f8 02        		.byte	0x2
+ 762 00f9 0000 0000 		.long	.Letext0
+ 763 00fd 00        		.byte	0x0
+ 764 00fe 01        		.uleb128 0x1
+ 765 00ff 01        		.byte	0x1
+ 766               	.LELT0:
+ 767 0100 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 767      0200 1000 
+ 767      0000 0101 
+ 767      FB0E 0A00 
+ 767      0101 0101 
+ 768               	.LASF10:
+ 769 0000 7370 6565 		.string	"speedRight"
+ 769      6452 6967 
+ 769      6874 00
+ 770               	.LASF14:
+ 771 000b 7465 7374 		.string	"test.c"
+ 771      2E63 00
+ 772               	.LASF9:
+ 773 0012 7370 6565 		.string	"speedLeft"
+ 773      644C 6566 
+ 773      7400 
+ 774               	.LASF15:
+ 775 001c 433A 5C55 		.ascii	"C:\\Users\\benn0r\\Dropbox\\Docum"
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 15
+
+
+ 775      7365 7273 
+ 775      5C62 656E 
+ 775      6E30 725C 
+ 775      4472 6F70 
+ 776 0039 656E 7473 		.string	"ents\\Schule\\INF\\242\\Asuro\\AsuroLib-v280rc1\\examples\\peter-parker"
+ 776      5C53 6368 
+ 776      756C 655C 
+ 776      494E 465C 
+ 776      3234 325C 
+ 777               	.LASF1:
+ 778 007a 756E 7369 		.string	"unsigned char"
+ 778      676E 6564 
+ 778      2063 6861 
+ 778      7200 
+ 779               	.LASF4:
+ 780 0088 6C6F 6E67 		.string	"long unsigned int"
+ 780      2075 6E73 
+ 780      6967 6E65 
+ 780      6420 696E 
+ 780      7400 
+ 781               	.LASF13:
+ 782 009a 474E 5520 		.string	"GNU C 4.3.3"
+ 782      4320 342E 
+ 782      332E 3300 
+ 783               	.LASF8:
+ 784 00a6 4C69 6E65 		.string	"LineRight"
+ 784      5269 6768 
+ 784      7400 
+ 785               	.LASF16:
+ 786 00b0 6D61 696E 		.string	"main"
+ 786      00
+ 787               	.LASF2:
+ 788 00b5 756E 7369 		.string	"unsigned int"
+ 788      676E 6564 
+ 788      2069 6E74 
+ 788      00
+ 789               	.LASF6:
+ 790 00c2 6C6F 6E67 		.string	"long long unsigned int"
+ 790      206C 6F6E 
+ 790      6720 756E 
+ 790      7369 676E 
+ 790      6564 2069 
+ 791               	.LASF7:
+ 792 00d9 4C69 6E65 		.string	"LineLeft"
+ 792      4C65 6674 
+ 792      00
+ 793               	.LASF5:
+ 794 00e2 6C6F 6E67 		.string	"long long int"
+ 794      206C 6F6E 
+ 794      6720 696E 
+ 794      7400 
+ 795               	.LASF11:
+ 796 00f0 6C69 6E65 		.string	"lineData"
+ 796      4461 7461 
+ 796      00
+ 797               	.LASF3:
+ 798 00f9 6C6F 6E67 		.string	"long int"
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 16
+
+
+ 798      2069 6E74 
+ 798      00
+ 799               	.LASF12:
+ 800 0102 4144 4F66 		.string	"ADOffset"
+ 800      6673 6574 
+ 800      00
+ 801               	.LASF0:
+ 802 010b 7369 676E 		.string	"signed char"
+ 802      6564 2063 
+ 802      6861 7200 
+ 803               	.global __do_clear_bss
+GAS LISTING C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 test.c
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:2      *ABS*:0000003f __SREG__
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:3      *ABS*:0000003e __SP_H__
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:4      *ABS*:0000003d __SP_L__
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:5      *ABS*:00000034 __CCP__
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:18     .text:00000000 LineLeft
+                            *COM*:00000002 speedLeft
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:43     .text:00000026 LineRight
+                            *COM*:00000002 speedRight
+C:\Users\benn0r\AppData\Local\Temp/ccXHkXrR.s:68     .text:0000004c main
+                            *COM*:00000004 lineData
+                            *COM*:00000002 ADOffset
+
+UNDEFINED SYMBOLS
+Init
+FrontLED
+LineData
+StatusLED
+SetMotorPower
+MotorSpeed
+__do_clear_bss
