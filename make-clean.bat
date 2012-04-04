@@ -1,0 +1,2 @@
+del *.hex
+make clean
